@@ -1,9 +1,21 @@
+import { useState } from "react";
 import BookCardList from "./BookCardList";
 import BookSearch from "./BookSearch";
 import BookSectionHeader from "./BookSectionHeader";
+import BooksName from "./BooksName";
 import BooksSorting from "./BooksSorting";
 
 const BooksBoard = () => {
+  const [books, setBooks] = useState(BooksName);
+
+  // add favoririte
+  const handleFav = (id) => {
+    const bookIndex = books.findIndex((book) => book.id === id);
+    const newBooksArray = [...books];
+    newBooksArray[bookIndex].isFav = !newBooksArray[bookIndex].isFav;
+    setBooks(newBooksArray);
+  };
+
   return (
     <main className="my-10 lg:my-14">
       <div className="mb-8 lg:mb-10 mx-auto max-w-7xl">
@@ -17,7 +29,7 @@ const BooksBoard = () => {
         </div>
       </div>
       {/* All books card  */}
-      <BookCardList />
+      <BookCardList books={books} handleFav={handleFav} />
     </main>
   );
 };
