@@ -41,7 +41,7 @@ const BooksName = [
   {
     id: 4,
     image: img4,
-    title: "Mastering HTML and CSS",
+    title: "Mastering HTML and CSS for Web Development",
     writter: "Laura Lemay",
     year: 2023,
     price: 75,
@@ -51,7 +51,7 @@ const BooksName = [
   {
     id: 5,
     image: img5,
-    title: "PHP For The Web Development",
+    title: "PHP for The Web Development & Design",
     writter: "Larry",
     year: 2018,
     price: 85,
@@ -71,7 +71,7 @@ const BooksName = [
   {
     id: 7,
     image: img7,
-    title: "Programming In C for Beginner",
+    title: "Programming In C for Beginner to Advance",
     writter: "Reema",
     year: 2020,
     price: 90,
@@ -81,7 +81,7 @@ const BooksName = [
   {
     id: 8,
     image: img8,
-    title: "Computer Fundamentals",
+    title: "Computer Fundamentals and Programming",
     writter: "Nusrat",
     year: 2022,
     price: 60,

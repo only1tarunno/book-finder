@@ -7,6 +7,18 @@ import BooksSorting from "./BooksSorting";
 
 const BooksBoard = () => {
   const [books, setBooks] = useState(BooksName);
+  // copy of all books for search
+  const [books2] = useState(BooksName);
+
+  // search books
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchTerm = e.target.search.value;
+    const filtered = books2.filter((book) =>
+      book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setBooks(filtered);
+  };
 
   // add favoririte
   const handleFav = (id) => {
@@ -23,7 +35,7 @@ const BooksBoard = () => {
           {/* <!-- info , title , search --> */}
           <div>
             <BookSectionHeader />
-            <BookSearch />
+            <BookSearch handleSearch={handleSearch} />
           </div>
           <BooksSorting />
         </div>
