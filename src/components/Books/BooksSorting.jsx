@@ -9,7 +9,7 @@ const BooksSorting = ({ sortBy, handleSort }) => {
         onChange={handleSort}
         id="sortBy"
       >
-        <option value="default">Sort</option>
+        <option value="">Sort</option>
         <option value="name_asc">Name (A-Z)</option>
         <option value="name_desc">Name (Z-A)</option>
         <option value="year_asc">Publication Year (Oldest)</option>

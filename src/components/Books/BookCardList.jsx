@@ -19,13 +19,11 @@ const BookCardList = ({ books, handleFav }) => {
           </div>
           {/* <!-- info --> */}
           <div className="space-y-3">
-            <h4 className="text-lg font-bold lg:text-xl">{book.title}</h4>
+            <h4 className="text-lg font-bold lg:text-xl">
+              {book.title}({book.year})
+            </h4>
             <p className="text-xs lg:text-sm">
-              By :{" "}
-              <span>
-                {book.writter}
-                {book.year}
-              </span>
+              By : <span>{book.writter}</span>
             </p>
             <div className="flex items-center justify-between">
               <h4 className="text-lg font-bold lg:text-xl">${book.price}</h4>
