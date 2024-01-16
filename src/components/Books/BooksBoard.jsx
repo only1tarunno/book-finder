@@ -9,6 +9,8 @@ const BooksBoard = () => {
   const [books, setBooks] = useState(BooksName);
   // copy of all books for search
   const [books2] = useState(BooksName);
+  // sort value state
+  const [sortBy, setSortBy] = useState("");
 
   // search books
   const handleSearch = (e) => {
@@ -18,6 +20,28 @@ const BooksBoard = () => {
       book.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setBooks(filtered);
+  };
+
+  // sorting books
+  const handleSort = (e) => {
+    const sortTerm = e.target.value;
+    setSortBy(sortTerm);
+
+    if (sortTerm === "name_asc") {
+      const sortingBooks = books.sort((a, b) => a.title.localeCompare(b.title));
+      setBooks(sortingBooks);
+    } else if (sortTerm === "name_desc") {
+      const sortingBooks = books.sort((a, b) => b.title.localeCompare(a.title));
+      setBooks(sortingBooks);
+    } else if (sortTerm === "year_asc") {
+      const sortingBooks = books.sort((a, b) => a.year - b.year);
+      setBooks(sortingBooks);
+    } else if (sortTerm === "year_desc") {
+      const sortingBooks = books.sort((a, b) => b.year - a.year);
+      setBooks(sortingBooks);
+    } else if (sortTerm === "default") {
+      setBooks([...books2]);
+    }
   };
 
   // add favoririte
@@ -37,7 +61,7 @@ const BooksBoard = () => {
             <BookSectionHeader />
             <BookSearch handleSearch={handleSearch} />
           </div>
-          <BooksSorting />
+          <BooksSorting handleSort={handleSort} sortBy={sortBy} />
         </div>
       </div>
       {/* All books card  */}
